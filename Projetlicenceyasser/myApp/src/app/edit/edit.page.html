@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>Edit document</ion-title>
+        <ion-buttons slot="start">
+            <ion-button color="primary"  (click)="closeModal()">
+                <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <form [formGroup]="form">
+
+        <ion-item>
+            <ion-label position="floating">Document name</ion-label>
+            <ion-input formControlName="name_doc" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Document type</ion-label>
+            <ion-input formControlName="type_doc" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Document image</ion-label>
+            <ion-input formControlName="img_doc" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Document text</ion-label>
+            <ion-input formControlName="txt_doc" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" color="warning" (click)="submitUpdate()" class="updatebutton">
+            <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+            Update Document
+        </ion-button>
+    </form>
+</ion-content>

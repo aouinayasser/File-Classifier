@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="toggleCameraMenu()">
+        <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{'bottomTabs.main' | translate}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar class="ion-no-padding">
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item *ngFor="let doc of docs">
+            <ion-card>
+                <ion-card-header>
+                    <img src="{{ doc.img_doc }}" />
+                    <ion-card-title>{{ doc.name_doc }}</ion-card-title>
+                    <ion-card-subtitle>{{ doc.type_doc }}</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    {{ doc.txt_doc }}
+                </ion-card-content>
+
+                <div>
+                    <button (click)="openEditModal($event)" class="edit" name="{{ doc.id }}">
+                    <ion-icon class="icon" slot="icon-only" name="pencil-outline"></ion-icon>
+                    Edit</button>
+                    <button (click)="deleteDocument($event)" class="delete" name="{{ doc.id }}">
+                    <ion-icon class="icon" slot="icon-only" name="trash-outline"></ion-icon>
+                    Delete
+                    </button>
+                </div>
+
+            </ion-card>
+
+
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadDataNewsPagination($event)">
+        <ion-infinite-scroll-content loadingSpinner="lines"> </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

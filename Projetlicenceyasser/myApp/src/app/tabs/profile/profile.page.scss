@@ -1,0 +1,39 @@
+.avatar {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    margin: 0 auto;
+
+    img {
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        bottom: calc(-1*(80px + 4px));
+        border: 8px solid #9Dc912;
+        background-color: #fff;
+    }
+    }
+
+.card-body {
+    background-color: transparent;
+    padding: 30px;
+    height: calc(100vh – (200px + 56px));
+    overflow: hidden;
+
+    .user-meta {
+        padding-top: 40px;
+
+        .username {
+            font-weight: bold; 
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .country {
+            font-size: 90%;
+            color: #949ea6;
+            text-transform: uppercase;
+            margin: 0 auto;
+        }
+    }
+}

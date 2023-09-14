@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">
+      Profile
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="50" pullMax="100" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+        <div class="avatar">
+           <img [src]=avatar />
+        </div>
+    
+    <div class="card-body">
+        <div class="user-meta ion-text-center">
+           <h3 class="username">{{ email }}</h3>
+            
+            <h5 class="country">Tunisia</h5>
+            <h6 class="ranking">
+                User type: <ion-chip>
+                    <ion-label>Client</ion-label>
+                </ion-chip>
+            </h6>
+        </div>
+        <ion-button expand="full" color="primary">http://aouinayasser.com/</ion-button>
+        <ion-button expand="full" color="secondary">@AouinaYasser on Twitter</ion-button>
+        <ion-button expand="full" color="secondary">View profile at Facebook</ion-button>
+    </div>
+</ion-content>
